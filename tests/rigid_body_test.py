@@ -77,7 +77,7 @@ def run_before_and_after_tests(tmpdir):
   # This is a fixture that runs before and after each test.
   # This fixes issue 227 (https://github.com/jax-md/jax-md/issues/277)
   yield # this is where the testing happens
-  gc.collect()
+  # gc.collect()
   # jax.clear_caches()
 
 # pylint: disable=invalid-name
