@@ -40,7 +40,7 @@ jobs:
         pip install --upgrade pip
         pip install .
         pip install .[testing]
-        pip install pytest-forked
+        pip install pytest-isolate        
         pip install pytest-cov
         pip install netCDF4
         pip install ase
@@ -50,7 +50,7 @@ jobs:
        swap-size-gb: 10
     - name: Test with pytest and generate coverage report
       run: |
-        JAX_ENABLE_X64=1 pytest --forked --cov=jax_md --cov-report=xml --cov-report=term --cov-config=setup.cfg tests/rigid_body_test.py
+        JAX_ENABLE_X64=1 pytest --isolate --cov=jax_md --cov-report=xml --cov-report=term --cov-config=setup.cfg tests/rigid_body_test.py
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
